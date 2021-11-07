@@ -1,14 +1,13 @@
 export const events = [
   {
     date: {
-      from: 1895,
-      to: 1905,
+      from: 2013,
+      to: 2017,
     },
-    role: 'Early Discoveries',
-    company: 'Theory of radioactive decay',
-    location: 'Ernest Rutherford',
-    content:
-      'Proin nunc nulla, blandit sit amet egestas sed, tincidunt non est. Ut id sem justo. Curabitur quis dictum turpis, ut tempus ligula. Fusce tempus scelerisque lorem in posuere.',
+    role: 'Student',
+    company: 'University of Denver',
+    location: 'Denver, CO',
+    content: '',
   },
   {
     date: {

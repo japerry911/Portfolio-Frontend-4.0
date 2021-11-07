@@ -92,12 +92,14 @@ const Timeline = (props) => {
     articleStyle: {
       backgroundColor: '#000',
       minHeight: '100vh',
-      backgroundImage: `url(https://storage.googleapis.com/portfolio-bucket-v4-r03249384431023901/home/mohammad-rahmani-aZEBwDrdcSs-unsplash.jpg)`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-      backgroundPosition: '45% 55%',
+      width: '100%',
+      // backgroundImage: `url(https://storage.googleapis.com/portfolio-bucket-v4-r03249384431023901/about/mohammad-rahmani-aZEBwDrdcSs-unsplash.jpg)`,
+      // backgroundRepeat: 'no-repeat',
+      // backgroundSize: 'cover',
+      // backgroundPosition: 'center',
       '& ul': {
-        padding: '100px 0px',
+        marginBottom: '100px',
+        paddingBottom: 0,
         '& li': {
           display: 'block',
           backgroundColor: '#FFF',
@@ -106,6 +108,12 @@ const Timeline = (props) => {
           position: 'relative',
           margin: '0 auto',
           width: '4px',
+          '&:first-of-type': {
+            padding: '0 2.5px 0 2.5px',
+          },
+          '&:first-of-type': {
+            padding: 0,
+          },
           '&::after': {
             backgroundColor: 'inherit',
             borderRadius: '50%',
@@ -119,6 +127,7 @@ const Timeline = (props) => {
             transition: 'background 1.25s ease-in-out',
           },
           '& section': {
+            borderRadius: 3,
             backgroundColor: '#FFF',
             boxShadow: '10px 10px 0px #000',
             bottom: 0,
@@ -138,7 +147,7 @@ const Timeline = (props) => {
               width: 0,
             },
           },
-          '&:nth-child(odd) section': {
+          '&:nth-of-type(odd) section': {
             left: '45px',
             transform: 'translate3d(200px, 0, 0)',
             '&::before': {
@@ -147,7 +156,7 @@ const Timeline = (props) => {
               left: '-15px',
             },
           },
-          '&:nth-child(even) section': {
+          '&:nth-of-type(even) section': {
             left: '-439px',
             transform: 'translate3d(-200px, 0, 0)',
             '&::after': {
@@ -169,7 +178,7 @@ const Timeline = (props) => {
             },
           },
           '&.inView::after': {
-            backgroundColor: 'blue',
+            backgroundColor: '#6D41A1',
           },
           '&.inView section': {
             opacity: 1,
@@ -190,7 +199,7 @@ const Timeline = (props) => {
           role={item.role}
           company={item.company}
           location={item.location}
-          key={`${item.time}`}
+          key={idx}
         />
       );
     });

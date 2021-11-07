@@ -15,6 +15,10 @@ const NavbarTabs = ({ value }) => {
         justifyContent: 'space-between',
       },
     },
+    tabStyle: {
+      color: '#FFF',
+      width: `${100 / routesArray.length}`,
+    },
   };
 
   return (
@@ -26,7 +30,7 @@ const NavbarTabs = ({ value }) => {
             component={Link}
             to={routeObject.link}
             label={routeObject.name}
-            sx={{ width: `${100 / routesArray.length}` }}
+            sx={styles.tabStyle}
           />
         ))}
       </Tabs>

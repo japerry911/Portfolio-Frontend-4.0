@@ -1,7 +1,13 @@
 import React from 'react';
 
 const BackgroundVideo = ({ children }) => (
-  <div style={{ position: 'relative', minHeight: '100vh' }}>
+  <div
+    style={{
+      position: 'relative',
+      minHeight: '100vh',
+      backgroundColor: '#000',
+    }}
+  >
     <video
       autoPlay
       loop

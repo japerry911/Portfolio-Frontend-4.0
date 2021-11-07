@@ -1,9 +1,11 @@
 import React from 'react';
+import Timeline from '../../components/Timeline/Timeline';
+import { events } from '../../assets';
 
 const AboutPage = () => {
   return (
-    <div>
-      <h1>About Page</h1>
+    <div style={{ backgroundColor: '#000' }}>
+      <Timeline events={events} />
     </div>
   );
 };

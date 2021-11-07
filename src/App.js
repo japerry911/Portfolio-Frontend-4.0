@@ -15,10 +15,10 @@ const App = () => {
   }, [location]);
 
   return (
-    <>
+    <div style={{ minHeight: '100vh', backgroundColor: '#000' }}>
       <Navbar value={value} />
       <AppRoutes />
-    </>
+    </div>
   );
 };
 

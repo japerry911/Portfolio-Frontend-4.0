@@ -35,7 +35,7 @@ const Navbar = ({ value }) => {
 
   return (
     <>
-      <AppBar sx={styles.appBarStyle} color="secondary">
+      <AppBar sx={styles.appBarStyle} color="transparent">
         <Toolbar sx={styles.toolbarStyle}>
           <Button sx={styles.logoButtonContainerStyle} component={Link} to="/">
             <img

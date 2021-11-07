@@ -40,7 +40,7 @@ const HomePage = () => {
                   <span style={{ color: '#000', fontWeight: 'bolder' }}>
                     ,
                   </span>{' '}
-                  a <b>Senior Developer</b>
+                  a <b>Developer</b>
                 </Typography>
               </Grid>
               <Grid item sx={{ width: '35%' }}>

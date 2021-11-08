@@ -1,56 +1,9 @@
-import React, { useRef, useState, useLayoutEffect, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-
-const isBrowser = typeof window != 'undefined';
-
-const getScrollPosition = ({ element, useWindow }) => {
-  if (!isBrowser) {
-    return { x: 0, y: 0 };
-  }
-
-  const target = element ? element.current : document.body;
-  const position = target.getBoundingClientRect();
-
-  return useWindow
-    ? { x: window.scrollX, y: window.scrollY }
-    : { x: position.left, y: position.top };
-};
-
-const useScrollPosition = (effect, deps, element, useWindow, wait) => {
-  const position = useRef(getScrollPosition({ useWindow }));
-
-  let throttleTimeout = null;
-
-  const callback = () => {
-    const currentPos = getScrollPosition({ element, useWindow });
-    effect({ previousPos: position.current, currentPos });
-    position.current = currentPos;
-    throttleTimeout = null;
-  };
-
-  useLayoutEffect(() => {
-    const handleScroll = () => {
-      if (wait) {
-        if (throttleTimeout === null) {
-          throttleTimeout = setTimeout(callback, wait);
-        }
-      } else {
-        callback();
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
-    };
-  }, deps);
-};
+import { useScrollPosition } from '../../hooks/hooks';
 
 const EventItem = ({ date, content, role, company, location }) => {
   const timeItem = useRef();
@@ -93,10 +46,6 @@ const Timeline = (props) => {
       backgroundColor: '#000',
       minHeight: '100vh',
       width: '100%',
-      // backgroundImage: `url(https://storage.googleapis.com/portfolio-bucket-v4-r03249384431023901/about/mohammad-rahmani-aZEBwDrdcSs-unsplash.jpg)`,
-      // backgroundRepeat: 'no-repeat',
-      // backgroundSize: 'cover',
-      // backgroundPosition: 'center',
       '& ul': {
         marginBottom: '100px',
         paddingBottom: 0,

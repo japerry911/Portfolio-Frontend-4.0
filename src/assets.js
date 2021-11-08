@@ -1,3 +1,28 @@
+import reactLogo from './static/react-logo.json';
+import pythonLogo from './static/python-logo.json';
+import sqlLogo from './static/sql.json';
+
+export const lotties = [
+  {
+    refId: 'react-logo',
+    logoFile: reactLogo,
+    title: 'React',
+    textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
+  },
+  {
+    refId: 'python-logo',
+    logoFile: pythonLogo,
+    title: 'Python',
+    textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
+  },
+  {
+    refId: 'sql-logo',
+    logoFile: sqlLogo,
+    title: 'SQL',
+    textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
+  },
+];
+
 export const events = [
   {
     date: {

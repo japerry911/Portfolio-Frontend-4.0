@@ -13,3 +13,18 @@ export const findIndex = (path, routesArray) => {
     return 0;
   }
 };
+
+export const getScrollPosition = ({ element, useWindow }) => {
+  const isBrowser = typeof window != 'undefined';
+
+  if (!isBrowser) {
+    return { x: 0, y: 0 };
+  }
+
+  const target = element ? element.current : document.body;
+  const position = target.getBoundingClientRect();
+
+  return useWindow
+    ? { x: window.scrollX, y: window.scrollY }
+    : { x: position.left, y: position.top };
+};

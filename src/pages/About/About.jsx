@@ -3,10 +3,13 @@ import Timeline from '../../components/Timeline/Timeline';
 import { events } from '../../assets';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import LottieCard from '../../components/LottieCard/LottieCard';
+import { lotties } from '../../assets';
 
 const AboutPage = () => {
   const styles = {
     gridContainerStyle: { width: '100%', padding: '10rem 0 0 0' },
+    gridSkillItemStyle: { width: '35%', marginTop: '3rem' },
   };
 
   return (
@@ -39,6 +42,33 @@ const AboutPage = () => {
       </Grid>
       <Grid item>
         <Timeline events={events} />
+      </Grid>
+      <Grid item>
+        <Typography variant="h1" color="primary">
+          Skills
+        </Typography>
+      </Grid>
+      <Grid
+        container
+        item
+        sx={{ width: '100%', minHeight: '30rem' }}
+        justifyContent="space-around"
+      >
+        {lotties.map((lottieObj, idx) => (
+          <Grid
+            item
+            sx={styles.gridSkillItemStyle}
+            key={`lottie-${idx}`}
+            align="center"
+          >
+            <LottieCard
+              refId={lottieObj.refId}
+              logoFile={lottieObj.logoFile}
+              title={lottieObj.title}
+              textContent={lottieObj.textContent}
+            />
+          </Grid>
+        ))}
       </Grid>
     </Grid>
   );

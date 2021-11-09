@@ -1,6 +1,12 @@
 import reactLogo from './static/react-logo.json';
 import pythonLogo from './static/python-logo.json';
 import sqlLogo from './static/sql.json';
+import rorLogo from './static/ror.json';
+import javascriptLogo from './static/javascript.json';
+import gcpLogo from './static/gcp.json';
+import awsLogo from './static/aws.json';
+import dockerLogo from './static/docker.json';
+import cssLogo from './static/css.json';
 
 export const lotties = [
   {
@@ -19,6 +25,43 @@ export const lotties = [
     refId: 'sql-logo',
     logoFile: sqlLogo,
     title: 'SQL',
+    textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
+  },
+  {
+    refId: 'javascript-logo',
+    logoFile: javascriptLogo,
+    title: 'JavaScript',
+    textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
+    small: true,
+  },
+  {
+    refId: 'ror-logo',
+    logoFile: rorLogo,
+    title: 'Ruby on Rails',
+    textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
+  },
+  {
+    refId: 'gcp-logo',
+    logoFile: gcpLogo,
+    title: 'Google Cloud Platform',
+    textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
+  },
+  {
+    refId: 'aws-logo',
+    logoFile: awsLogo,
+    title: 'Amazon Web Services',
+    textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
+  },
+  {
+    refId: 'docker-logo',
+    logoFile: dockerLogo,
+    title: 'Docker/GCP Cloud Build',
+    textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
+  },
+  {
+    refId: 'css-logo',
+    logoFile: cssLogo,
+    title: 'CSS',
     textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
   },
 ];

@@ -9,7 +9,7 @@ import { lotties } from '../../assets';
 const AboutPage = () => {
   const styles = {
     gridContainerStyle: { width: '100%', padding: '10rem 0 0 0' },
-    gridSkillItemStyle: { width: '35%', marginTop: '3rem' },
+    gridSkillItemStyle: { width: '35%', marginTop: '10rem' },
   };
 
   return (
@@ -24,6 +24,7 @@ const AboutPage = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         minHeight: '200vh',
+        padding: '10rem 0',
       }}
     >
       <Grid container item sx={styles.gridContainerStyle} alignItems="center">
@@ -66,6 +67,7 @@ const AboutPage = () => {
               logoFile={lottieObj.logoFile}
               title={lottieObj.title}
               textContent={lottieObj.textContent}
+              small={true && lottieObj.small}
             />
           </Grid>
         ))}

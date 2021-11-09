@@ -6,7 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { useScrollPosition } from '../../hooks/hooks';
 
-const LottieCard = ({ refId, logoFile, title, textContent }) => {
+const LottieCard = ({ refId, logoFile, title, textContent, small }) => {
   const item = useRef();
   const [loadAnimation, setLoadAnimation] = useState(false);
   const [prevLoadAnimation, setPrevLoadAnimation] = useState(false);
@@ -37,7 +37,6 @@ const LottieCard = ({ refId, logoFile, title, textContent }) => {
   }, []);
 
   useEffect(() => {
-    console.log(prevLoadAnimation);
     if (loadAnimation && prevLoadAnimation) {
       anim.play();
       setPrevLoadAnimation(false);
@@ -52,11 +51,28 @@ const LottieCard = ({ refId, logoFile, title, textContent }) => {
   useScrollPosition(() => setLoadAnimation(checkPosition(item.current)));
 
   return (
-    <Card ref={item} sx={{ height: '30rem', width: '30rem', padding: '1rem' }}>
+    <Card
+      ref={item}
+      sx={{
+        backgroundColor: '#FFF',
+        height: '28rem',
+        width: '28rem',
+        padding: '1rem',
+        boxShadow: '#6D41A1 0px 14px 28px, #6D41A1 0px 10px 10px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+      }}
+    >
       <CardMedia
         component="div"
         id={refId}
-        sx={{ height: '20rem', width: '20rem' }}
+        sx={{
+          height: '20rem',
+          width: '20rem',
+          padding: !small ? 0 : '5rem',
+        }}
         alt={refId}
       />
       <CardContent>

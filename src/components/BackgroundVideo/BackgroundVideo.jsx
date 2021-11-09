@@ -4,7 +4,7 @@ const BackgroundVideo = ({ children }) => (
   <div
     style={{
       position: 'relative',
-      minHeight: '100vh',
+      width: '100%',
       backgroundColor: '#000',
     }}
   >
@@ -14,8 +14,7 @@ const BackgroundVideo = ({ children }) => (
       muted
       style={{
         opacity: 0.5,
-        minHeight: '100vh',
-        minWidth: '100vw',
+        width: '100vw',
       }}
     >
       <source

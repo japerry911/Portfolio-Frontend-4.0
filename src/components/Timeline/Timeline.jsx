@@ -13,7 +13,6 @@ const EventItem = ({ date, content, role, company, location }) => {
     const rect = el.getBoundingClientRect();
 
     return (
-      rect.top >= 0 &&
       rect.left >= 0 &&
       rect.bottom <=
         (window.innerHeight || document.documentElement.clientHeight) &&
@@ -53,7 +52,7 @@ const Timeline = (props) => {
           display: 'block',
           backgroundColor: '#FFF',
           listStyleType: 'none',
-          padding: '350px 2.5px 0 2.5px',
+          padding: '30rem 2.5px 0 2.5px',
           position: 'relative',
           margin: '0 auto',
           width: '4px',
@@ -78,7 +77,7 @@ const Timeline = (props) => {
           '& section': {
             borderRadius: 3,
             backgroundColor: '#FFF',
-            boxShadow: '10px 10px 0px #000',
+            boxShadow: '#6D41A1 14px 14px 28px, #6D41A1 0px 10px 10px',
             bottom: 0,
             color: '#000',
             position: 'relative',

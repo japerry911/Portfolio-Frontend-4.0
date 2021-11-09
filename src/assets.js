@@ -7,6 +7,7 @@ import gcpLogo from './static/gcp.json';
 import awsLogo from './static/aws.json';
 import dockerLogo from './static/docker.json';
 import cssLogo from './static/css.json';
+import apiLogo from './static/api.json';
 
 export const lotties = [
   {
@@ -62,6 +63,12 @@ export const lotties = [
     refId: 'css-logo',
     logoFile: cssLogo,
     title: 'CSS',
+    textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
+  },
+  {
+    refId: 'api-logo',
+    logoFile: apiLogo,
+    title: 'API',
     textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
   },
 ];

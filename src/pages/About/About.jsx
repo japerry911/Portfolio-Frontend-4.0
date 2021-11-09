@@ -8,7 +8,7 @@ import { lotties } from '../../assets';
 
 const AboutPage = () => {
   const styles = {
-    gridContainerStyle: { width: '100%', padding: '10rem 0 0 0' },
+    gridContainerStyle: { width: '100%', padding: '5rem 0 10rem 0' },
     gridSkillItemStyle: { width: '35%', marginTop: '10rem' },
   };
 
@@ -23,6 +23,7 @@ const AboutPage = () => {
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
         minHeight: '200vh',
         padding: '10rem 0',
       }}

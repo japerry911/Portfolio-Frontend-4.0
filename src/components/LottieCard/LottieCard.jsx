@@ -9,7 +9,6 @@ import { useScrollPosition } from '../../hooks/hooks';
 const LottieCard = ({ refId, logoFile, title, textContent, small }) => {
   const item = useRef();
   const [loadAnimation, setLoadAnimation] = useState(false);
-  const [prevLoadAnimation, setPrevLoadAnimation] = useState(false);
   const [anim, setAnim] = useState(undefined);
 
   const checkPosition = (el) => {
@@ -37,12 +36,10 @@ const LottieCard = ({ refId, logoFile, title, textContent, small }) => {
   }, []);
 
   useEffect(() => {
-    if (loadAnimation && prevLoadAnimation) {
+    if (loadAnimation) {
       anim.play();
-      setPrevLoadAnimation(false);
     } else if (!loadAnimation && anim) {
       anim.stop();
-      setPrevLoadAnimation(true);
     }
   }, [loadAnimation]);
 

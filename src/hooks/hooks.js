@@ -6,10 +6,10 @@ export const useScrollPosition = (effect, deps, element, useWindow, wait) => {
 
   let throttleTimeout = null;
 
-  const callback = () => {
-    const currentPos = getScrollPosition({ element, useWindow });
-    effect({ previousPos: position.current, currentPos });
-    position.current = currentPos;
+  const callBack = () => {
+    const currPos = getScrollPosition({ element, useWindow });
+    effect({ prevPos: position.current, currPos });
+    position.current = currPos;
     throttleTimeout = null;
   };
 
@@ -17,16 +17,15 @@ export const useScrollPosition = (effect, deps, element, useWindow, wait) => {
     const handleScroll = () => {
       if (wait) {
         if (throttleTimeout === null) {
-          throttleTimeout = setTimeout(callback, wait);
+          throttleTimeout = setTimeout(callBack, wait);
         }
       } else {
-        callback();
+        callBack();
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleScroll);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);

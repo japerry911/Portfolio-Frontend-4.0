@@ -1,8 +1,7 @@
 import React from 'react';
 import BackgroundVideo from '../../components/BackgroundVideo/BackgroundVideo';
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import Trail from '../../components/Trail/Trail';
 
 const HomePage = () => {
   return (
@@ -20,18 +19,20 @@ const HomePage = () => {
           alignItems="center"
           justifyContent="flex-end"
         >
-          <Grid item />
-          <Grid item sx={{ paddingRight: '10%' }}>
-            <Grid
-              sx={{ height: '8rem' }}
-              item
-              container
-              flexDirection="column"
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              <Grid item>
-                <Typography variant="h3">
+          <Grid
+            item
+            container
+            flexDirection="column"
+            justifyContent="space-between"
+            alignItems="center"
+            sx={{ width: '55%', height: '20rem', paddingTop: '10rem' }}
+          >
+            <Trail>
+              <span>I am</span>
+              <span>Jack Perry,</span>
+              <span>a Software Engineer</span>
+            </Trail>
+            {/* <Typography variant="h3">
                   Hi
                   <span style={{ color: '#000', fontWeight: 'bolder' }}>
                     .
@@ -51,9 +52,7 @@ const HomePage = () => {
                   size="large"
                 >
                   Learn more
-                </Button>
-              </Grid>
-            </Grid>
+                </Button> */}
           </Grid>
         </Grid>
       </BackgroundVideo>

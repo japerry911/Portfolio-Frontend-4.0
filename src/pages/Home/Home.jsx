@@ -32,27 +32,6 @@ const HomePage = () => {
               <span>Jack Perry,</span>
               <span>a Software Engineer</span>
             </Trail>
-            {/* <Typography variant="h3">
-                  Hi
-                  <span style={{ color: '#000', fontWeight: 'bolder' }}>
-                    .
-                  </span>{' '}
-                  I am <b>Jack Perry</b>
-                  <span style={{ color: '#000', fontWeight: 'bolder' }}>
-                    ,
-                  </span>{' '}
-                  a <b>Developer</b>
-                </Typography>
-              </Grid>
-              <Grid item sx={{ width: '35%' }}>
-                <Button
-                  sx={{ width: '100%' }}
-                  color="secondary"
-                  variant="contained"
-                  size="large"
-                >
-                  Learn more
-                </Button> */}
           </Grid>
         </Grid>
       </BackgroundVideo>

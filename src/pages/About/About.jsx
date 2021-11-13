@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import LottieCard from '../../components/LottieCard/LottieCard';
 import { lotties } from '../../assets';
+import Trail from '../../components/Trail/Trail';
 
 const AboutPage = () => {
   const styles = {
@@ -28,21 +29,25 @@ const AboutPage = () => {
         padding: '10rem',
       }}
     >
-      <Grid container item sx={styles.gridContainerStyle} alignItems="center">
-        <Grid item sx={{ width: '50%' }} align="center">
+      <Grid
+        container
+        item
+        direction="column"
+        sx={styles.gridContainerStyle}
+        alignItems="center"
+      >
+        <Trail>
           <img
-            style={{ width: '40%' }}
+            style={{ width: '30%' }}
             alt="Jack and Skylord"
             src="https://storage.googleapis.com/portfolio-bucket-v4-r03249384431023901/about/jack_perry_2%20(1).png"
           />
-        </Grid>
-        <Grid item sx={{ width: '50%' }}>
-          <Typography variant="h1" color="primary">
-            Resume
-          </Typography>
-        </Grid>
+        </Trail>
+        <Trail>
+          <Typography variant="title">Resume</Typography>
+        </Trail>
       </Grid>
-      <Grid item>
+      <Grid item sx={{ marginTop: '30rem' }}>
         <Timeline events={events} />
       </Grid>
       <Grid item sx={{ paddingTop: '10rem' }}>

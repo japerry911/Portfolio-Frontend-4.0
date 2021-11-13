@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid';
 const Trail = ({ children }) => {
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
-    config: { mass: 50, tension: 1000, friction: 500 },
+    config: { mass: 50, tension: 1000, friction: 500, duration: 1250 },
     opacity: 1,
     x: 0,
     height: 110,
@@ -27,7 +27,6 @@ const Trail = ({ children }) => {
             fontSize: '6rem',
             fontWeight: '800',
             letterSpacing: '-0.05em',
-            overflow: 'hidden',
           }}
         >
           <a.div style={{ height }}>{items[idx]}</a.div>

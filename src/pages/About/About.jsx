@@ -8,7 +8,7 @@ import { lotties } from '../../assets';
 
 const AboutPage = () => {
   const styles = {
-    gridContainerStyle: { width: '100%', padding: '5rem 0 10rem 0' },
+    gridContainerStyle: { width: '100%', padding: '5rem 0 20rem 0' },
     gridSkillItemStyle: { width: '35%', marginTop: '10rem' },
   };
 
@@ -25,7 +25,7 @@ const AboutPage = () => {
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
         minHeight: '200vh',
-        padding: '10rem 0',
+        padding: '10rem',
       }}
     >
       <Grid container item sx={styles.gridContainerStyle} alignItems="center">
@@ -45,7 +45,7 @@ const AboutPage = () => {
       <Grid item>
         <Timeline events={events} />
       </Grid>
-      <Grid item>
+      <Grid item sx={{ paddingTop: '10rem' }}>
         <Typography variant="h1" color="primary">
           Skills
         </Typography>

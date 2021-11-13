@@ -28,12 +28,12 @@ const LottieCard = ({ refId, logoFile, title, textContent, small }) => {
       lottie.loadAnimation({
         container: document.querySelector(`#${refId}`),
         animationData: logoFile,
-        autoplay: true,
+        autoplay: false,
         loop: false,
         renderer: 'svg',
       })
     );
-  }, []);
+  }, [logoFile, refId]);
 
   useEffect(() => {
     if (loadAnimation) {
@@ -41,7 +41,7 @@ const LottieCard = ({ refId, logoFile, title, textContent, small }) => {
     } else if (!loadAnimation && anim) {
       anim.stop();
     }
-  }, [loadAnimation]);
+  }, [loadAnimation, anim]);
 
   useEffect(() => setLoadAnimation(checkPosition(item.current)), []);
 

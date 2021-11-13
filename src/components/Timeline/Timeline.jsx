@@ -48,6 +48,7 @@ const Timeline = (props) => {
       '& ul': {
         marginBottom: '100px',
         paddingBottom: 0,
+        paddingTop: 0,
         '& li': {
           display: 'block',
           backgroundColor: '#FFF',
@@ -57,21 +58,18 @@ const Timeline = (props) => {
           margin: '0 auto',
           width: '4px',
           '&:first-of-type': {
-            padding: '0 2.5px 0 2.5px',
-          },
-          '&:first-of-type': {
             padding: 0,
           },
           '&::after': {
             backgroundColor: 'inherit',
             borderRadius: '50%',
-            bottom: '7px',
+            bottom: 0,
             content: '""',
-            height: '15px',
+            height: '20px',
             left: '50%',
             position: 'absolute',
             transform: 'translateX(-50%)',
-            width: '15px',
+            width: '20px',
             transition: 'background 1.25s ease-in-out',
           },
           '& section': {

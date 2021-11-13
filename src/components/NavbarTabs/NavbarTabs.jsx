@@ -1,13 +1,10 @@
 import React from 'react';
-import useTheme from '@mui/material/styles/useTheme';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import routesArray from '../../router/routesArray';
 import { Link } from 'react-router-dom';
 
 const NavbarTabs = ({ value }) => {
-  const theme = useTheme();
-
   const styles = {
     tabsStyle: {
       width: '50%',

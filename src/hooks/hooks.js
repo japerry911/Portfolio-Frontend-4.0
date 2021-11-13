@@ -4,16 +4,16 @@ import { getScrollPosition } from '../utils';
 export const useScrollPosition = (effect, deps, element, useWindow, wait) => {
   const position = useRef(getScrollPosition({ useWindow }));
 
-  let throttleTimeout = null;
-
-  const callBack = () => {
-    const currPos = getScrollPosition({ element, useWindow });
-    effect({ prevPos: position.current, currPos });
-    position.current = currPos;
-    throttleTimeout = null;
-  };
-
   useLayoutEffect(() => {
+    let throttleTimeout = null;
+
+    const callBack = () => {
+      const currPos = getScrollPosition({ element, useWindow });
+      effect({ prevPos: position.current, currPos });
+      position.current = currPos;
+      throttleTimeout = null;
+    };
+
     const handleScroll = () => {
       if (wait) {
         if (throttleTimeout === null) {
@@ -30,5 +30,5 @@ export const useScrollPosition = (effect, deps, element, useWindow, wait) => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
     };
-  }, deps);
+  }, [deps, wait, effect, element, useWindow]);
 };

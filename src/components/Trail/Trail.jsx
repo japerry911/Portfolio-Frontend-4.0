@@ -1,15 +1,15 @@
 import React from 'react';
-import { useTrail, a } from 'react-spring';
+import { useTrail, a, config } from 'react-spring';
 import Grid from '@mui/material/Grid';
 
 const Trail = ({ children }) => {
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
-    config: { mass: 50, tension: 1000, friction: 500, duration: 1250 },
+    config: config.slow,
     opacity: 1,
     x: 0,
     height: 110,
-    from: { opacity: 0, x: 20, height: 0 },
+    from: { opacity: 0, x: 100, height: 0 },
   });
 
   return (

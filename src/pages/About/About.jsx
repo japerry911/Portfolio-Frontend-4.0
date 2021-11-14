@@ -44,10 +44,12 @@ const AboutPage = () => {
           />
         </Trail>
         <Trail>
-          <Typography variant="title">Resume</Typography>
+          <span>Who</span>
+          <span>Am</span>
+          <span>I?</span>
         </Trail>
       </Grid>
-      <Grid item sx={{ marginTop: '30rem' }}>
+      <Grid item sx={{ marginTop: '10rem' }}>
         <Timeline events={events} />
       </Grid>
       <Grid item sx={{ paddingTop: '10rem' }}>

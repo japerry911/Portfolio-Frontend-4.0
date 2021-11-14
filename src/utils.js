@@ -28,3 +28,8 @@ export const getScrollPosition = ({ element, useWindow }) => {
     ? { x: window.scrollX, y: window.scrollY }
     : { x: position.left, y: position.top };
 };
+
+// Used to showcase loading skeletons
+export const sleep = (milliseconds) => {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+};

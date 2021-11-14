@@ -35,7 +35,10 @@ const Navbar = ({ value }) => {
 
   return (
     <>
-      <AppBar sx={styles.appBarStyle} color="transparent">
+      <AppBar
+        sx={styles.appBarStyle}
+        sx={{ backgroundColor: 'rgb(0,0,0,0.25)' }}
+      >
         <Toolbar sx={styles.toolbarStyle}>
           <Button sx={styles.logoButtonContainerStyle} component={Link} to="/">
             <img

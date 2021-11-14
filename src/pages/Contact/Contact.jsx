@@ -146,7 +146,12 @@ const ContactPage = () => {
           onClose={handleClose}
           fullWidth
           PaperProps={{
-            sx: { backgroundColor: 'rgba(0,0,0,0.9)', color: '#FFF' },
+            sx: {
+              backgroundColor: 'rgba(0,0,0,0.9)',
+              color: '#FFF',
+              border: '1pt solid white',
+              boxShadow: '#6D41A1 0px 7px 14px, #6D41A1 0px 5px 5px',
+            },
           }}
         >
           <Box component="form" onSubmit={handleSubmit}>
@@ -246,6 +251,7 @@ const ContactPage = () => {
                 variant="contained"
                 isDisabled={!isValid}
                 type="submit"
+                sendIcon
               />
             </DialogActions>
           </Box>

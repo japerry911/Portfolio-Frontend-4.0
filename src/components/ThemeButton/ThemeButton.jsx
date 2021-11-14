@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import Skeleton from '@mui/material/Skeleton';
 import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material/styles';
+import SendIcon from '@mui/icons-material/Send';
 
 const ThemeButton = ({
   link,
@@ -11,6 +12,7 @@ const ThemeButton = ({
   variant,
   onClick,
   type,
+  sendIcon = false,
   isDisabled = false,
 }) => {
   const theme = useTheme();
@@ -32,6 +34,7 @@ const ThemeButton = ({
           }}
           type={type || 'button'}
           disabled={isDisabled}
+          endIcon={sendIcon ? <SendIcon /> : null}
         >
           {text}
         </Button>

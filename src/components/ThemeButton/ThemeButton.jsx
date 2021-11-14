@@ -1,28 +1,27 @@
-import React from 'react';
-import Grid from '@mui/material/Grid';
+import React, { Fragment } from 'react';
+import Skeleton from '@mui/material/Skeleton';
 import Button from '@mui/material/Button';
 
-const ThemeButton = ({ isHoverOver, style, link }) => {
+const ThemeButton = ({ link, skeletonMode }) => {
   return (
-    <Grid
-      item
-      sx={{
-        ...style,
-        boxShadow: '#6D41A1 0px 7px 14px, #6D41A1 0px 5px 5px',
-        backgroundColor: 'transparent',
-      }}
-    >
-      <Button
-        component="a"
-        href={link}
-        rel="noopener noreferrer"
-        target="_blank"
-        variant="contained"
-        sx={{ '&:hover': { backgroundColor: 'purple' } }}
-      >
-        Read More
-      </Button>
-    </Grid>
+    <Fragment>
+      {skeletonMode ? (
+        <Skeleton variant="rectangular" width="7rem" />
+      ) : (
+        <Button
+          component="a"
+          href={link}
+          rel="noopener noreferrer"
+          target="_blank"
+          variant="contained"
+          sx={{
+            '&:hover': { backgroundColor: 'purple' },
+          }}
+        >
+          'Read More'
+        </Button>
+      )}
+    </Fragment>
   );
 };
 

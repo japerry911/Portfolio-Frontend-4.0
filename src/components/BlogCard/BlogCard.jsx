@@ -107,19 +107,22 @@ const BlogCard = ({
           />
         </Fragment>
       ) : (
-        <Skeleton
-          component="div"
-          animation="wave"
-          width="50%"
-          height="100%"
-          sx={{
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            bottom: 0,
-            top: 0,
-          }}
-        />
+        <Fragment>
+          <Skeleton
+            component="div"
+            animation="wave"
+            variant="rectangular"
+            sx={{
+              position: 'absolute',
+              left: 0,
+              right: 0,
+              bottom: 0,
+              top: 0,
+              width: '100%',
+              height: '100%',
+            }}
+          />
+        </Fragment>
       )}
       <Grid
         item
@@ -149,12 +152,12 @@ const BlogCard = ({
       >
         <Grid item>
           <Typography variant="h5" align="left" sx={{ fontWeight: 'bolder' }}>
-            {title}
+            {skeletonMode ? <Skeleton width="60%" /> : title}
           </Typography>
         </Grid>
         <Grid item>
           <Typography variant="subtitle1" align="left">
-            {subTitle}
+            {skeletonMode ? <Skeleton width="80%" /> : subTitle}
           </Typography>
           <Divider
             sx={{
@@ -166,14 +169,34 @@ const BlogCard = ({
             }}
           />
         </Grid>
-        <Grid item>
-          <Typography variant="body1">{snippetText}</Typography>
+        <Grid item sx={{ width: '100%' }}>
+          <Typography variant="body1">
+            {skeletonMode ? (
+              <Fragment>
+                <Skeleton width="80%" />
+                <Skeleton width="80%" />
+                <Skeleton width="80%" />
+                <Skeleton width="80%" />
+                <Skeleton width="80%" />
+                <Skeleton width="80%" />
+                <Skeleton width="60%" />
+              </Fragment>
+            ) : (
+              snippetText
+            )}
+          </Typography>
         </Grid>
-        <ThemeButton
-          style={{ alignSelf: 'flex-end', margin: 'auto 2rem 2rem auto' }}
-          isHoverOver={isHoverOver}
-          link={link}
-        />
+        <Grid
+          item
+          sx={{
+            boxShadow: '#6D41A1 0px 7px 14px, #6D41A1 0px 5px 5px',
+            backgroundColor: 'transparent',
+            alignSelf: 'flex-end',
+            margin: 'auto 2rem 2rem auto',
+          }}
+        >
+          <ThemeButton link={link} skeletonMode={skeletonMode} />
+        </Grid>
       </Grid>
     </Card>
   );

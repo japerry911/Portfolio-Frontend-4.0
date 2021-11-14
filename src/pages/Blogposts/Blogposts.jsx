@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import expressServer from '../../api/expressServer';
 import BlogCard from '../../components/BlogCard/BlogCard';
+import { sleep } from '../../utils';
 
 const mockBlogpost = {
   _id: '',
@@ -23,6 +24,8 @@ const Blogposts = () => {
       const response = await expressServer.get('/blogposts');
       if (response.status === 200) {
         setBlogposts(response.data);
+        await sleep(1000);
+        setIsLoading(false);
       } else {
         console.error(
           `Error loading /projects - ${response.status}: ${response.statusText}`
@@ -83,7 +86,7 @@ const Blogposts = () => {
         {blogposts.map((blogObject, idx) => (
           <Grid item key={blogObject._id} sx={styles.blogCardStyle}>
             <BlogCard
-              skeletonMode={!isLoading}
+              skeletonMode={isLoading}
               backgroundSize={
                 [3, 4, 5, 6, 10, 9].includes(idx) ? 'contain' : 'cover'
               }

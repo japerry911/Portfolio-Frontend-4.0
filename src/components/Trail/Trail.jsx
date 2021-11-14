@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid';
 const Trail = ({ children }) => {
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
-    config: config.slow,
+    config: { ...config.slow, duration: 1000 },
     opacity: 1,
     x: 0,
     height: 110,

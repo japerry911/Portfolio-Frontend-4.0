@@ -37,7 +37,7 @@ const LottieCard = ({
         container: document.querySelector(`#${refId}`),
         animationData: logoFile,
         autoplay: !isCard,
-        loop: false,
+        loop: !isCard,
         renderer: 'svg',
       })
     );

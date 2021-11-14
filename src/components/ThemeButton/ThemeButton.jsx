@@ -10,6 +10,8 @@ const ThemeButton = ({
   component,
   variant,
   onClick,
+  type,
+  isDisabled = false,
 }) => {
   const theme = useTheme();
 
@@ -28,6 +30,8 @@ const ThemeButton = ({
           sx={{
             '&:hover': { backgroundColor: theme.colors.themePurple },
           }}
+          type={type || 'button'}
+          disabled={isDisabled}
         >
           {text}
         </Button>

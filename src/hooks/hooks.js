@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { getScrollPosition } from '../utils';
 
 export const useScrollPosition = (effect, deps, element, useWindow, wait) => {
@@ -31,4 +31,19 @@ export const useScrollPosition = (effect, deps, element, useWindow, wait) => {
       window.removeEventListener('resize', handleScroll);
     };
   }, [deps, wait, effect, element, useWindow]);
+};
+
+export const useFormFields = (initialState) => {
+  const [fields, setFields] = useState(initialState);
+
+  return [
+    fields,
+    (event) => {
+      setFields({
+        ...fields,
+        [event.target.id]: event.target.value,
+      });
+    },
+    setFields,
+  ];
 };

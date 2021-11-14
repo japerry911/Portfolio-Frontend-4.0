@@ -14,9 +14,11 @@ const Projects = () => {
           `Error loading /projects - ${response.status}: ${response.statusText}`
         );
       }
+
+      console.log(projects);
     }
     fetchProjects();
-  }, []);
+  }, [projects]);
 
   return (
     <div>

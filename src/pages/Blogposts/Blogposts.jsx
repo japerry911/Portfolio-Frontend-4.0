@@ -6,8 +6,17 @@ import Divider from '@mui/material/Divider';
 import expressServer from '../../api/expressServer';
 import BlogCard from '../../components/BlogCard/BlogCard';
 
+const mockBlogpost = {
+  _id: '',
+  title: '',
+  imgUrl: '',
+  subTitle: '',
+  snippText: '',
+};
+
 const Blogposts = () => {
-  const [blogposts, setBlogposts] = useState([]);
+  const [blogposts, setBlogposts] = useState([].fill(mockBlogpost, 0, 8));
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchBlogposts() {
@@ -19,12 +28,10 @@ const Blogposts = () => {
           `Error loading /projects - ${response.status}: ${response.statusText}`
         );
       }
-
-      console.log(blogposts);
     }
 
     fetchBlogposts();
-  }, [blogposts]);
+  }, []);
 
   const styles = {
     mainContainerStyle: {
@@ -37,12 +44,14 @@ const Blogposts = () => {
       width: '100%',
     },
     blogCardStyle: {
+      height: '25rem',
       width: '45%',
       marginTop: '10rem',
       position: 'relative',
       zIndex: 0,
       overflow: 'hidden',
       boxShadow: '#6D41A1 0px 14px 28px, #6D41A1 0px 10px 10px',
+      backgroundColor: '#FFF',
     },
   };
 
@@ -74,6 +83,7 @@ const Blogposts = () => {
         {blogposts.map((blogObject, idx) => (
           <Grid item key={blogObject._id} sx={styles.blogCardStyle}>
             <BlogCard
+              skeletonMode={!isLoading}
               backgroundSize={
                 [3, 4, 5, 6, 10, 9].includes(idx) ? 'contain' : 'cover'
               }
@@ -84,7 +94,10 @@ const Blogposts = () => {
               snippetText={
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.'
               }
+              date="2021-10-01"
+              tags={['tag1', 'tag2', 'tag3']}
             />
+            )
           </Grid>
         ))}
       </Grid>

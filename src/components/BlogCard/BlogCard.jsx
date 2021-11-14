@@ -1,10 +1,56 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, Fragment } from 'react';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 import { useTheme } from '@mui/material/styles';
+import Skeleton from '@mui/material/Skeleton';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Box from '@mui/material/Box';
+import LocalOfferIcon from '@mui/icons-material/LocalOffer';
+import EventIcon from '@mui/icons-material/Event';
+import ThemeButton from '../../components/ThemeButton/ThemeButton';
+
+const BlogCardDetailsList = ({ isHoverOver, tags, date }) => {
+  return (
+    <Box
+      sx={{
+        backgroundColor: 'rgba(0,0,0,0.7)',
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: isHoverOver ? 0 : '-100%',
+        transition: 'left .5s',
+        color: '#FFF',
+        padding: '2px',
+        width: '50%',
+        fontSize: '90rem',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
+      }}
+    >
+      <List>
+        <ListItem>
+          <ListItemIcon sx={{ color: '#FFF' }}>
+            <EventIcon />
+          </ListItemIcon>
+          <ListItemText primary={date} color="#FFF" />
+        </ListItem>
+        <ListItem>
+          <ListItemIcon sx={{ color: '#FFF' }}>
+            <LocalOfferIcon />
+          </ListItemIcon>
+          <ListItemText primary={'#'.concat(tags.join(', #'))} color="#FFF" />
+        </ListItem>
+      </List>
+    </Box>
+  );
+};
 
 const BlogCard = ({
   imgUrl,
@@ -13,6 +59,9 @@ const BlogCard = ({
   subTitle,
   snippetText,
   backgroundSize,
+  skeletonMode,
+  tags,
+  date,
 }) => {
   const [isHoverOver, setIsHoverOver] = useState(false);
   const theme = useTheme();
@@ -23,7 +72,7 @@ const BlogCard = ({
       onMouseLeave={() => setIsHoverOver(false)}
       sx={{
         backgroundColor: '#FFF',
-        height: '25rem',
+        height: '100%',
         width: '100%',
         display: 'flex',
         justifyContent: 'flex-end',
@@ -31,29 +80,51 @@ const BlogCard = ({
         zIndex: 0,
       }}
     >
-      <CardMedia
-        component="div"
-        sx={{
-          height: '100%',
-          maxWidth: '50%',
-          position: 'absolute',
-          backgroundImage: `url(${imgUrl})`,
-          backgroundSize: backgroundSize,
-          backgroundPosition: 'center',
-          left: 0,
-          right: 0,
-          bottom: 0,
-          top: 0,
-          transform: isHoverOver ? 'scale(1.3) rotate(3deg)' : 0,
-          transition: 'transform 1s',
-        }}
-        alt="Blogpost Card"
-      />
+      {!skeletonMode ? (
+        <Fragment>
+          <CardMedia
+            component="div"
+            sx={{
+              height: '100%',
+              width: '50%',
+              position: 'absolute',
+              backgroundImage: `url(${imgUrl})`,
+              backgroundSize: backgroundSize,
+              backgroundPosition: 'center',
+              left: 0,
+              right: 0,
+              bottom: 0,
+              top: 0,
+              transform: isHoverOver ? 'scale(1.3) rotate(3deg)' : 0,
+              transition: 'transform 2s',
+            }}
+            alt="Blogpost Card"
+          />
+          <BlogCardDetailsList
+            isHoverOver={isHoverOver}
+            tags={tags}
+            date={date}
+          />
+        </Fragment>
+      ) : (
+        <Skeleton
+          component="div"
+          animation="wave"
+          width="50%"
+          height="100%"
+          sx={{
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            bottom: 0,
+            top: 0,
+          }}
+        />
+      )}
       <Grid
         item
         container
         direction="column"
-        alignItem="center"
         justifyContent="flex-start"
         sx={{
           paddingTop: '1rem',
@@ -77,12 +148,12 @@ const BlogCard = ({
         }}
       >
         <Grid item>
-          <Typography variant="h5" align="center" sx={{ fontWeight: 'bolder' }}>
+          <Typography variant="h5" align="left" sx={{ fontWeight: 'bolder' }}>
             {title}
           </Typography>
         </Grid>
         <Grid item>
-          <Typography variant="subtitle1" align="center">
+          <Typography variant="subtitle1" align="left">
             {subTitle}
           </Typography>
           <Divider
@@ -98,7 +169,11 @@ const BlogCard = ({
         <Grid item>
           <Typography variant="body1">{snippetText}</Typography>
         </Grid>
-        <Grid item></Grid>
+        <ThemeButton
+          style={{ alignSelf: 'flex-end', margin: 'auto 2rem 2rem auto' }}
+          isHoverOver={isHoverOver}
+          link={link}
+        />
       </Grid>
     </Card>
   );

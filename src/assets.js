@@ -8,6 +8,14 @@ import awsLogo from './static/aws.json';
 import dockerLogo from './static/docker.json';
 import cssLogo from './static/css.json';
 import apiLogo from './static/api.json';
+import contact from './static/contact.json';
+
+export const contactLottie = {
+  refId: 'contact-logo',
+  logoFile: contact,
+  title: null,
+  textContent: null,
+};
 
 export const lotties = [
   {

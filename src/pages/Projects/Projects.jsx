@@ -18,7 +18,7 @@ const Projects = () => {
       console.log(projects);
     }
     fetchProjects();
-  }, [projects]);
+  }, []);
 
   return (
     <div>

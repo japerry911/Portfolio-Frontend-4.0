@@ -195,7 +195,13 @@ const BlogCard = ({
             margin: 'auto 2rem 2rem auto',
           }}
         >
-          <ThemeButton link={link} skeletonMode={skeletonMode} />
+          <ThemeButton
+            text="Read More"
+            link={link}
+            skeletonMode={skeletonMode}
+            variant="contained"
+            component="a"
+          />
         </Grid>
       </Grid>
     </Card>

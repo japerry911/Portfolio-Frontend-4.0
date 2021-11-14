@@ -9,6 +9,9 @@ let theme = createTheme({
       main: '#000',
     },
   },
+  colors: {
+    themePurple: '#6D41A1',
+  },
 });
 
 theme = responsiveFontSizes(theme);

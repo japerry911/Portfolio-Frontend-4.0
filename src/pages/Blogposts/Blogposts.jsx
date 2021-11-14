@@ -4,6 +4,7 @@ import Trail from '../../components/Trail/Trail';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import expressServer from '../../api/expressServer';
+import BlogCard from '../../components/BlogCard/BlogCard';
 
 const Blogposts = () => {
   const [blogposts, setBlogposts] = useState([]);
@@ -29,7 +30,19 @@ const Blogposts = () => {
     mainContainerStyle: {
       minHeight: '100vh',
       backgroundColor: '#000',
-      paddingTop: '10rem',
+      padding: '10rem 0',
+    },
+    cardContainerStyle: {
+      marginBottom: 'auto',
+      width: '100%',
+    },
+    blogCardStyle: {
+      width: '45%',
+      marginTop: '10rem',
+      position: 'relative',
+      zIndex: 0,
+      overflow: 'hidden',
+      boxShadow: '#6D41A1 0px 14px 28px, #6D41A1 0px 10px 10px',
     },
   };
 
@@ -49,12 +62,31 @@ const Blogposts = () => {
         sx={{
           width: '90%',
           backgroundColor: '#FFF',
-          marginBottom: 'auto',
-          marginTop: '1rem',
+          margin: '2rem 0',
         }}
       />
-      <Grid item>
-        <h1 style={{ color: 'white' }}>HIHIHIHIHI</h1>
+      <Grid
+        item
+        container
+        styles={styles.cardContainerStyle}
+        justifyContent="space-around"
+      >
+        {blogposts.map((blogObject, idx) => (
+          <Grid item key={blogObject._id} sx={styles.blogCardStyle}>
+            <BlogCard
+              backgroundSize={
+                [3, 4, 5, 6, 10, 9].includes(idx) ? 'contain' : 'cover'
+              }
+              title={blogObject.title}
+              imgUrl={blogObject.imgUrl}
+              link={blogObject.link}
+              subTitle="Opening a Door to the Future"
+              snippetText={
+                'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.'
+              }
+            />
+          </Grid>
+        ))}
       </Grid>
     </Grid>
   );

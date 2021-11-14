@@ -1,12 +1,20 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, Fragment } from 'react';
 import lottie from 'lottie-web/build/player/lottie_light';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { useScrollPosition } from '../../hooks/hooks';
+import Box from '@mui/material/Box';
 
-const LottieCard = ({ refId, logoFile, title, textContent, small }) => {
+const LottieCard = ({
+  refId,
+  logoFile,
+  title,
+  textContent,
+  small,
+  isCard = true,
+}) => {
   const item = useRef();
   const [loadAnimation, setLoadAnimation] = useState(false);
   const [anim, setAnim] = useState(undefined);
@@ -28,57 +36,84 @@ const LottieCard = ({ refId, logoFile, title, textContent, small }) => {
       lottie.loadAnimation({
         container: document.querySelector(`#${refId}`),
         animationData: logoFile,
-        autoplay: false,
+        autoplay: !isCard,
         loop: false,
         renderer: 'svg',
       })
     );
-  }, [logoFile, refId]);
+  }, [logoFile, refId, isCard]);
 
   useEffect(() => {
-    if (loadAnimation) {
-      anim.play();
-    } else if (!loadAnimation && anim) {
-      anim.stop();
+    if (isCard) {
+      if (loadAnimation) {
+        anim.play();
+      } else if (!loadAnimation && anim) {
+        anim.stop();
+      }
     }
-  }, [loadAnimation, anim]);
+  }, [loadAnimation, anim, isCard]);
 
-  useEffect(() => setLoadAnimation(checkPosition(item.current)), []);
+  useEffect(() => {
+    if (isCard) {
+      setLoadAnimation(checkPosition(item.current));
+    }
+  }, [isCard]);
 
-  useScrollPosition(() => setLoadAnimation(checkPosition(item.current)));
+  useScrollPosition(() => {
+    if (isCard) {
+      setLoadAnimation(checkPosition(item.current));
+    }
+  });
 
   return (
-    <Card
-      ref={item}
-      sx={{
-        backgroundColor: '#FFF',
-        height: '28rem',
-        width: '28rem',
-        padding: '1rem',
-        boxShadow: '#6D41A1 0px 14px 28px, #6D41A1 0px 10px 10px',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-evenly',
-        alignItems: 'center',
-      }}
-    >
-      <CardMedia
-        component="div"
-        id={refId}
-        sx={{
-          height: '20rem',
-          width: '20rem',
-          padding: !small ? 0 : '5rem',
-        }}
-        alt={refId}
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {title}
-        </Typography>
-        <Typography variant="body2">{textContent}</Typography>
-      </CardContent>
-    </Card>
+    <Fragment>
+      {isCard ? (
+        <Card
+          ref={item}
+          sx={{
+            backgroundColor: '#FFF',
+            height: '28rem',
+            width: '28rem',
+            padding: '1rem',
+            boxShadow: '#6D41A1 0px 14px 28px, #6D41A1 0px 10px 10px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-evenly',
+            alignItems: 'center',
+          }}
+        >
+          <CardMedia
+            component="div"
+            id={refId}
+            sx={{
+              height: '20rem',
+              width: '20rem',
+              padding: !small ? 0 : '5rem',
+            }}
+            alt={refId}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {title}
+            </Typography>
+            <Typography variant="body2">{textContent}</Typography>
+          </CardContent>
+        </Card>
+      ) : (
+        <>
+          <Box
+            component="div"
+            id={refId}
+            sx={{
+              height: '20rem',
+              width: '20rem',
+              padding: !small ? 0 : '5rem',
+            }}
+            alt={refId}
+          />
+        </>
+      )}
+    </Fragment>
   );
 };
 

@@ -15,6 +15,7 @@ const Navbar = ({ value }) => {
     appBarStyle: {
       boxShadow: 'none',
       flexGrow: 1,
+      backgroundColor: 'rgb(0,0,0,0.25)',
     },
     logoImageStyle: {
       height: '5rem',
@@ -35,10 +36,7 @@ const Navbar = ({ value }) => {
 
   return (
     <>
-      <AppBar
-        sx={styles.appBarStyle}
-        sx={{ backgroundColor: 'rgb(0,0,0,0.25)' }}
-      >
+      <AppBar sx={styles.appBarStyle}>
         <Toolbar sx={styles.toolbarStyle}>
           <Button sx={styles.logoButtonContainerStyle} component={Link} to="/">
             <img

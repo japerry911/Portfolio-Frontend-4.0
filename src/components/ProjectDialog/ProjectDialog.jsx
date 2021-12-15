@@ -19,19 +19,22 @@ const ProjectDialog = ({ setOpen, open, projectObject }) => {
   return (
     <Fragment>
       <Dialog fullScreen open={open} TransitionComponent={Transition}>
-        <Grid container direction="column">
-          <Grid item>
-            <IconButton
-              edge="start"
-              color="inherit"
-              onClick={handleClose}
-              aria-label="close"
-            >
-              <CloseIcon />
-            </IconButton>
-          </Grid>
-          <Grid item>
-            <Typography variant="h3">Title</Typography>
+        <Grid
+          container
+          direction="column"
+          sx={{ height: '100%' }}
+          alignItems="center"
+          justifyContent="space-evenly"
+        >
+          <Grid container item justifyContent="center" alignItems="center">
+            <Grid item>
+              <IconButton edge="start" onClick={handleClose} aria-label="close">
+                <CloseIcon />
+              </IconButton>
+            </Grid>
+            <Grid item>
+              <Typography variant="h3">Title</Typography>
+            </Grid>
           </Grid>
           <Grid item>
             <img src={projectObject.imgUrl} />
@@ -41,7 +44,13 @@ const ProjectDialog = ({ setOpen, open, projectObject }) => {
           </Grid>
           <Divider
             flexItem
-            sx={{ width: '95%', color: 'white', padding: '2px' }}
+            sx={{
+              width: '100%',
+              color: 'white',
+              marginLeft: 0,
+              marginRight: 0,
+            }}
+            variant="middle"
           />
           <Grid item>
             <Typography variant="body1">Links</Typography>

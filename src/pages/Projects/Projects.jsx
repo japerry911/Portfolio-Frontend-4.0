@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import expressServer from '../../api/expressServer';
 import Grid from '@mui/material/Grid';
 import Trail from '../../components/Trail/Trail';
@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
 import Divider from '@mui/material/Divider';
 import { sleep } from '../../utils';
+import ProjectDialog from '../../components/ProjectDialog/ProjectDialog';
 
 const mockProject = {
   _id: '',
@@ -14,6 +15,9 @@ const mockProject = {
 const Projects = () => {
   const [projects, setProjects] = useState([].fill(mockProject, 0, 6));
   const [isLoading, setIsLoading] = useState(true);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedProjectObject, setSelectedProjectObject] =
+    useState(mockProject);
 
   useEffect(() => {
     async function fetchProjects() {
@@ -55,41 +59,50 @@ const Projects = () => {
   };
 
   return (
-    <Grid
-      container
-      sx={styles.mainContainerStyle}
-      direction="column"
-      alignItems="center"
-      justifyContent="space-around"
-    >
-      <Trail>
-        <Typography variant="title">Projects</Typography>
-      </Trail>
-      <Divider
-        light
-        sx={{
-          width: '90%',
-          backgroundColor: '#FFF',
-          margin: '2rem 0',
-        }}
-      />
+    <Fragment>
       <Grid
-        item
         container
-        styles={styles.cardContainerStyle}
+        sx={styles.mainContainerStyle}
+        direction="column"
+        alignItems="center"
         justifyContent="space-around"
       >
-        {projects.map((projectObject) => (
-          <Grid item key={projectObject._id} sx={styles.blogCardStyle}>
-            <ProjectCard
-              projectObject={projectObject}
-              skeletonMode={isLoading}
-            />
-            )
-          </Grid>
-        ))}
+        <Trail>
+          <Typography variant="title">Projects</Typography>
+        </Trail>
+        <Divider
+          light
+          sx={{
+            width: '90%',
+            backgroundColor: '#FFF',
+            margin: '2rem 0',
+          }}
+        />
+        <Grid
+          item
+          container
+          styles={styles.cardContainerStyle}
+          justifyContent="space-around"
+        >
+          {projects.map((projectObject) => (
+            <Grid item key={projectObject._id} sx={styles.blogCardStyle}>
+              <ProjectCard
+                projectObject={projectObject}
+                skeletonMode={isLoading}
+                setSelectedProjectObject={setSelectedProjectObject}
+                setDialogOpen={setDialogOpen}
+              />
+              )
+            </Grid>
+          ))}
+        </Grid>
       </Grid>
-    </Grid>
+      <ProjectDialog
+        setOpen={setDialogOpen}
+        open={dialogOpen}
+        projectObject={selectedProjectObject}
+      />
+    </Fragment>
   );
 };
 

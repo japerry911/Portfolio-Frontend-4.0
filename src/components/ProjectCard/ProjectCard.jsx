@@ -2,11 +2,15 @@ import React, { Fragment } from 'react';
 import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardMedia from '@mui/material/CardMedia';
-import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
 import Skeleton from '@mui/material/Skeleton';
 
-const ProjectCard = ({ projectObject, skeletonMode }) => {
+const ProjectCard = ({
+  projectObject,
+  skeletonMode,
+  setSelectedProjectObject,
+  setDialogOpen,
+}) => {
   const theme = useTheme();
 
   const styles = {
@@ -39,13 +43,14 @@ const ProjectCard = ({ projectObject, skeletonMode }) => {
     },
   };
 
+  const handleClick = () => {
+    setSelectedProjectObject(projectObject);
+    setDialogOpen(true);
+  };
+
   return (
     <Card sx={styles.cardStyle}>
-      <CardActionArea
-        component={Link}
-        to={`/projects/${projectObject._id}`}
-        sx={styles.cardActionAreaStyle}
-      >
+      <CardActionArea onClick={handleClick} sx={styles.cardActionAreaStyle}>
         {skeletonMode ? (
           <Fragment>
             <Skeleton

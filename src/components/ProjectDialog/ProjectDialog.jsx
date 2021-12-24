@@ -5,7 +5,10 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import Button from '@mui/material/Button';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -26,22 +29,52 @@ const ProjectDialog = ({ setOpen, open, projectObject }) => {
           alignItems="center"
           justifyContent="space-evenly"
         >
-          <Grid container item justifyContent="center" alignItems="center">
-            <Grid item>
-              <IconButton edge="start" onClick={handleClose} aria-label="close">
-                <CloseIcon />
-              </IconButton>
-            </Grid>
-            <Grid item>
-              <Typography variant="h3">Title</Typography>
-            </Grid>
+          <Grid item>
+            <Button
+              onClick={handleClose}
+              sx={{
+                backgroundColor: '#000',
+                boxShadow: '#6D41A1 0px 7px 14px, #6D41A1 0px 5px 5px',
+                transition: '120ms ease-in',
+                '&:hover': {
+                  backgroundColor: '#6D41A1',
+                  boxShadow: '#000 0px 7px 14px, #6D41A1 0px 5px 5px',
+                },
+              }}
+            >
+              EXIT DIALOG SCREEN
+            </Button>
           </Grid>
           <Grid item>
-            <img src={projectObject.imgUrl} />
+            <Typography variant="h3">{projectObject.title}</Typography>
+          </Grid>
+          <Grid item align="center">
+            <img
+              style={{ width: '50%' }}
+              src={projectObject.imgUrl}
+              alt={`${projectObject.title} Logo`}
+            />
           </Grid>
           <Grid item>
-            <Typography variant="body1">Tags</Typography>
+            <Typography variant="h6">Features</Typography>
           </Grid>
+          <ul
+            style={{
+              height: '100px',
+              display: 'flex',
+              flexDirection: 'column',
+              flexWrap: 'wrap',
+              width: '90%',
+              listStyleType: 'none',
+              alignItems: 'center',
+            }}
+          >
+            {projectObject.features !== undefined
+              ? projectObject.features.map((feature, idx) => (
+                  <li key={`${feature}-${idx}`}>{feature}</li>
+                ))
+              : null}
+          </ul>
           <Divider
             flexItem
             sx={{
@@ -53,7 +86,35 @@ const ProjectDialog = ({ setOpen, open, projectObject }) => {
             variant="middle"
           />
           <Grid item>
-            <Typography variant="body1">Links</Typography>
+            <Typography variant="h6">Links</Typography>
+          </Grid>
+          <Grid
+            item
+            container
+            justifyContent="space-evenly"
+            alignItems="center"
+          >
+            {projectObject.githubLink ? (
+              <Grid item>
+                <IconButton>
+                  <GitHubIcon fontSize="large" />
+                </IconButton>
+              </Grid>
+            ) : null}
+            {projectObject.youtubeLink ? (
+              <Grid item>
+                <IconButton>
+                  <YouTubeIcon fontSize="large" />
+                </IconButton>
+              </Grid>
+            ) : null}
+            {projectObject.appLink ? (
+              <Grid item>
+                <IconButton>
+                  <ExitToAppIcon fontSize="large" />
+                </IconButton>
+              </Grid>
+            ) : null}
           </Grid>
         </Grid>
       </Dialog>

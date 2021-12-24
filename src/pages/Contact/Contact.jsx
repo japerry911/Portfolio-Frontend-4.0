@@ -158,7 +158,8 @@ const ContactPage = () => {
             <DialogTitle>Contact Jack</DialogTitle>
             <DialogContent>
               <DialogContentText color="primary" sx={{ padding: '2rem 0' }}>
-                Fill Out the Form Below and Press "Send Message".
+                (NOT CURRENTLY FUNCTIONING) Fill Out the Form Below and Press
+                "Send Message"
               </DialogContentText>
               <TextField
                 autoFocus

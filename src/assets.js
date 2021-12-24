@@ -22,62 +22,67 @@ export const lotties = [
     refId: 'react-logo',
     logoFile: reactLogo,
     title: 'React',
-    textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
+    textContent: 'React, Material-UI Framework',
   },
   {
     refId: 'python-logo',
     logoFile: pythonLogo,
     title: 'Python',
-    textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
+    textContent:
+      'Python 3 experience with Web Scraping, ETL processes, and more',
   },
   {
     refId: 'sql-logo',
     logoFile: sqlLogo,
     title: 'SQL',
-    textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
+    textContent: 'SQL experience in BigQuery, SnowFlake, and PostgreSQL',
   },
   {
     refId: 'javascript-logo',
     logoFile: javascriptLogo,
     title: 'JavaScript',
-    textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
+    textContent: 'JavaScript experience with automation, web apps, and more',
     small: true,
   },
   {
     refId: 'ror-logo',
     logoFile: rorLogo,
     title: 'Ruby on Rails',
-    textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
+    textContent: 'Ruby on Rails based API building experience',
   },
   {
     refId: 'gcp-logo',
     logoFile: gcpLogo,
     title: 'Google Cloud Platform',
-    textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
+    textContent:
+      'GCP experience in Cloud Run, Cloud Functions, Pub/Sub, BigQuery, App Engine, API Gateway, Secrets Manager, IAM, GCS, gCloud, and more',
   },
   {
     refId: 'aws-logo',
     logoFile: awsLogo,
     title: 'Amazon Web Services',
-    textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
+    textContent:
+      'AWS experience in S3, boto3, ECR, Fargate/ECS, Secrets Manager, and more',
   },
   {
     refId: 'docker-logo',
     logoFile: dockerLogo,
     title: 'Docker/GCP Cloud Build',
-    textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
+    textContent: 'Docker Image building/Dockerfile creation experience',
   },
   {
     refId: 'css-logo',
     logoFile: cssLogo,
     title: 'CSS',
-    textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
+    textContent:
+      'Experience with CSS, Sass, and Material-UIs styling (Emotion)',
   },
   {
     refId: 'api-logo',
     logoFile: apiLogo,
     title: 'API',
-    textContent: 'BlahBlahBlahBlahBlahBlahBlahBlahBlah',
+    textContent:
+      'API archiecture and API integrations/communications experience',
   },
 ];
 
@@ -90,72 +95,40 @@ export const events = [
     role: 'Student',
     company: 'University of Denver',
     location: 'Denver, CO',
-    content: '',
+    content:
+      "Graduated from the Daniel's College of Business. Majored in Business Information Systems/Business Analytics, and Minored in Leadership.",
   },
   {
     date: {
-      from: 1996,
-      to: 1999,
+      from: 2018,
+      to: 2020,
     },
-    role: 'Futher Investigations',
-    company: 'First model of an atom',
-    location: 'Niels Bohr',
+    role: 'Automation Analyst/Developer',
+    company: 'Metric Theory',
+    location: 'Denver, CO',
     content:
-      'Quisque tortor tortor, pretium sed risus sit amet, pretium rutrum nunc. Nulla turpis eros, rhoncus at lobortis eget, elementum eu lectus.',
+      'Built API integrations, ETL packages. Utilized GCP (Cloud Functions, BigQuery, Cloud Storage) and Xplenty ETL Software.',
   },
   {
     date: {
-      from: 1997,
-      to: 1999,
+      from: 2020,
+      to: 2021,
     },
-    role: 'Prelude to War',
-    company: 'Splitting of the nucleus',
-    location: 'Albert Einstein',
+    role: 'ETL Automation Developer/Data Engineer',
+    company: 'Digible',
+    location: 'Denver, CO',
     content:
-      'Cras ut orci hendrerit, elementum massa vitae, eleifend sapien. Praesent dignissim sem est, id ornare sem lobortis at.',
+      'Built Google Analytics API Integration. Worked on the in-house Data Pipeline in AWS. Worked with Web Scrapers to gather consistent data.',
   },
   {
     date: {
-      from: 1999,
-      to: 2001,
+      from: 2021,
+      to: 'Present',
     },
-    role: 'Organizing the Effort',
-    company: 'Nuclear Chain Reaction',
-    location: 'Enrico Fermi',
+    role: 'Senior Developer',
+    company: 'Metric Theory',
+    location: 'Denver, CO',
     content:
-      'Rhoncus at lobortis eget, elementum eu lectus. Maecenas et ante sapien. Ut semper commodo felis, eget ullamcorper dolor faucibus vel. Fusce pharetra tempor est malesuada rutrum.',
-  },
-  {
-    date: {
-      from: 2002,
-      to: 2005,
-    },
-    role: 'The Manhattan Project',
-    company: 'Jornada del Muerto',
-    location: 'J. Robert Oppenheimer',
-    content:
-      'Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce velit enim, dignissim eu fringilla quis, malesuada et massa.',
-  },
-  {
-    date: {
-      from: 2005,
-      to: 2010,
-    },
-    role: 'Crossroads of Peace',
-    company: 'Atomic Energy Act',
-    location: 'Harry S. Truman',
-    content:
-      'Fusce et sem accumsan magna fringilla porta. Nunc eget turpis ut ligula vulputate faucibus. Nam euismod leo vel eleifend suscipit. Pellentesque et congue felis.',
-  },
-  {
-    date: {
-      from: 2010,
-      to: 2014,
-    },
-    role: 'Current Day',
-    company: 'Arms Races',
-    location: 'Present Day',
-    content:
-      'Aliquam leo arcu, semper vel iaculis sed, maximus eu neque. Maecenas mollis est non ante vehicula commodo. Nullam feugiat tellus augue. ',
+      'Built and played a role in designing in-house Data Pipeline, which runs within GCP. Work and play a role in designing internal Web Application, which houses tool for peers, utilizes React, Material UI v5, and more.',
   },
 ];
